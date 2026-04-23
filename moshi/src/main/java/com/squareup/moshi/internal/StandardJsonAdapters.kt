@@ -195,7 +195,7 @@ internal object StandardJsonAdapters : JsonAdapter.Factory {
   private val STRING_JSON_ADAPTER: JsonAdapter<String> =
     object : JsonAdapter<String>() {
       override fun fromJson(reader: JsonReader): String {
-        return reader.nextString()
+        return reader.nextString().trim()
       }
 
       override fun toJson(writer: JsonWriter, value: String) {
