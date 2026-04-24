@@ -111,7 +111,7 @@ internal object StandardJsonAdapters : JsonAdapter.Factory {
   private val DOUBLE_JSON_ADAPTER: JsonAdapter<Double> =
     object : JsonAdapter<Double>() {
       override fun fromJson(reader: JsonReader): Double {
-        return reader.nextDouble()
+        return Math.floor(reader.nextDouble())
       }
 
       override fun toJson(writer: JsonWriter, value: Double) {
