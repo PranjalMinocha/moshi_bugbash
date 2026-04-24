@@ -34,9 +34,7 @@ private constructor(private val elementAdapter: JsonAdapter<T?>) : JsonAdapter<C
     reader.beginArray()
     while (reader.hasNext()) {
       val item = elementAdapter.fromJson(reader) as T
-      if (item != null) {
       result.add(item)
-      }
     }
     reader.endArray()
     return result
