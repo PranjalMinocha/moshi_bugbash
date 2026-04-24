@@ -38,7 +38,6 @@ private constructor(private val elementAdapter: JsonAdapter<T?>) : JsonAdapter<C
       result.add(item)
       }
     }
-    }
     reader.endArray()
     return result
   }
