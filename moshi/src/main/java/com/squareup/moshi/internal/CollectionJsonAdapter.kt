@@ -33,7 +33,11 @@ private constructor(private val elementAdapter: JsonAdapter<T?>) : JsonAdapter<C
     val result = newCollection()
     reader.beginArray()
     while (reader.hasNext()) {
-      result.add(elementAdapter.fromJson(reader))
+      val item = elementAdapter.fromJson(reader) as T
+      if (item != null) {
+      result.add(item)
+      }
+    }
     }
     reader.endArray()
     return result
